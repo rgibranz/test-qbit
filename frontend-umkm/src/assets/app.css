@@ -34,3 +34,11 @@
   font-size: 36px; /* Ukuran ikon */
   color: white; /* Warna ikon */
 }
+
+.testimonial-section .row {
+  height: 400px;
+}
+
+.testimonial-form-section .row {
+  height: 400px;
+}

@@ -1,14 +1,14 @@
 import Hero from './Hero';
 import SectionTwo from './SectionTwo';
 import FeaturesSection from "./FeaturesSection";
-import TestimonialSection from "./TestimonialSection";
+import FormSection from "./FormSection";
 function App() {
   return (
     <div>
       <Hero/>
       <SectionTwo/>
       <FeaturesSection />
-      <TestimonialSection />
+      <FormSection />
     </div>
   );
 }

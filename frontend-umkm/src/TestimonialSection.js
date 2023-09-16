@@ -38,11 +38,11 @@ const TestimonialSection = () => {
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-item">
-              <Card className="text-center mx-3">
-                <Card.Body>
-                  <Card.Title className="card-title">{testimonial.name}</Card.Title>
-                  <Card.Text className="card-text">{testimonial.testimony}</Card.Text>
-                  <div className="stars">
+              <Card key="card-{index}"  className="text-center mx-3">
+                <Card.Body key="body-{index}">
+                  <Card.Title className="card-title" key="title-{index}">{testimonial.name}</Card.Title>
+                  <Card.Text className="card-text" key="text-{index}">{testimonial.testimony}</Card.Text>
+                  <div className="stars" key="stars-{index}">
                     {Array.from({length: testimonial.rating}, (_, i) => (
                       <FaStar/>
                     ))}

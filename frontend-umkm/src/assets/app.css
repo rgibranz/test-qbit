@@ -26,13 +26,13 @@
   justify-content: center;
   width: 60px;
   height: 60px;
-  background-color: #3498db; /* Warna latar belakang lingkaran */
-  border-radius: 50%; /* Untuk membentuk lingkaran */
+  background-color: #3498db;
+  border-radius: 50%;
 }
 
 .feature-icon svg {
-  font-size: 36px; /* Ukuran ikon */
-  color: white; /* Warna ikon */
+  font-size: 36px;
+  color: white; 
 }
 
 .testimonial-section .row {

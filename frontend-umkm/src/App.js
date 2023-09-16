@@ -1,8 +1,12 @@
 import Hero from './Hero';
+import SectionTwo from './SectionTwo';
 
 function App() {
   return (
-      <Hero />
+    <div>
+      <Hero/>
+      <SectionTwo/>
+    </div>
   );
 }
 

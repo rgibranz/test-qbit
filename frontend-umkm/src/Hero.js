@@ -1,7 +1,7 @@
 import React from "react";
-import {Container, Row, Col, Image, Button} from "react-bootstrap";
+import {Container, Row, Col, Image} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/hero.css"; // File CSS untuk styling (opsional)
+import "./assets/app.css"; // File CSS untuk styling (opsional)
 import gambarHero from "./image/1.png";
 
 const Hero = () => {

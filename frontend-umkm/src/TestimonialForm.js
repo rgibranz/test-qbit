@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const TestimonialForm = ({ onFormSubmit }) => {
-  const [name, setName] = useState('');
-  const [testimony, setTestimony] = useState('');
+  const [name, setName] = useState("");
+  const [testimony, setTestimony] = useState("");
   const [rating, setRating] = useState(5);
 
   const handleSubmit = (e) => {
@@ -12,33 +12,36 @@ const TestimonialForm = ({ onFormSubmit }) => {
     const newTestimonial = {
       name,
       testimony,
-      rating
+      rating,
     };
 
-    const apiUrl = 'https://65052ea5ef808d3c66efd160.mockapi.io/testimoni';
-    axios.post(apiUrl, newTestimonial)
-      .then(response => {
+    const apiUrl = "http://localhost:8000/api/testimonials";
+    axios
+      .post(apiUrl, newTestimonial)
+      .then((response) => {
         Swal.fire({
-          icon: 'success',
-          title: 'Terima Kasih!',
-          text: 'Testimoni Anda telah berhasil disubmit.',
+          icon: "success",
+          title: "Terima Kasih!",
+          text: "Testimoni Anda telah berhasil disubmit.",
         }).then(() => {
           onFormSubmit();
-          setName('');
-          setTestimony('');
+          setName("");
+          setTestimony("");
           setRating(5);
           window.location.reload();
         });
       })
-      .catch(error => {
-        console.error('Error submitting testimonial:', error);
+      .catch((error) => {
+        console.error("Error submitting testimonial:", error);
       });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="name" className="form-label">Name</label>
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
         <input
           type="text"
           className="form-control"
@@ -49,7 +52,9 @@ const TestimonialForm = ({ onFormSubmit }) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="testimony" className="form-label">Testimony</label>
+        <label htmlFor="testimony" className="form-label">
+          Testimony
+        </label>
         <textarea
           className="form-control"
           id="testimony"
@@ -60,7 +65,9 @@ const TestimonialForm = ({ onFormSubmit }) => {
         ></textarea>
       </div>
       <div className="mb-3">
-        <label htmlFor="rating" className="form-label">Rating</label>
+        <label htmlFor="rating" className="form-label">
+          Rating
+        </label>
         <select
           className="form-select"
           id="rating"
@@ -75,7 +82,9 @@ const TestimonialForm = ({ onFormSubmit }) => {
           <option value={1}>1 Bintang</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
     </form>
   );
 };

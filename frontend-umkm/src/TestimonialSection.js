@@ -1,25 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Row} from 'react-bootstrap';
-import {FaStar} from 'react-icons/fa'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, Row } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
 
 const TestimonialSection = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    // Ganti dengan URL API yang sesuai atau load data dari file testimonials.json
-    const apiUrl = 'https://65052ea5ef808d3c66efd160.mockapi.io/testimoni';
+    const apiUrl = "http://localhost:8000/api/testimonials";
 
-    axios.get(apiUrl)
-      .then(response => {
+    axios
+      .get(apiUrl)
+      .then((response) => {
         setTestimonials(response.data);
       })
-      .catch(error => {
-        console.error('Error fetching testimonials:', error);
+      .catch((error) => {
+        console.error("Error fetching testimonials:", error);
       });
   }, []);
 
@@ -38,13 +38,17 @@ const TestimonialSection = () => {
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-item">
-              <Card key="card-{index}"  className="text-center mx-3">
+              <Card key="card-{index}" className="text-center mx-3">
                 <Card.Body key="body-{index}">
-                  <Card.Title className="card-title" key="title-{index}">{testimonial.name}</Card.Title>
-                  <Card.Text className="card-text" key="text-{index}">{testimonial.testimony}</Card.Text>
+                  <Card.Title className="card-title" key="title-{index}">
+                    {testimonial.name}
+                  </Card.Title>
+                  <Card.Text className="card-text" key="text-{index}">
+                    {testimonial.testimony}
+                  </Card.Text>
                   <div className="stars" key="stars-{index}">
-                    {Array.from({length: testimonial.rating}, (_, i) => (
-                      <FaStar/>
+                    {Array.from({ length: testimonial.rating }, (_, i) => (
+                      <FaStar />
                     ))}
                   </div>
                 </Card.Body>
